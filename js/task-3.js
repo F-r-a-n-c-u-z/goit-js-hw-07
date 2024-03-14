@@ -1,26 +1,12 @@
-class StringBuilder {
-    #value;
-    constructor(initialValue) {
-      this.#value = initialValue;
+const inputEL = document.querySelector('#name-input');
+const titleEl  = document.querySelector("#name-output");
+
+inputEL.addEventListener("input", hadleInput);
+function hadleInput(event) {
+    titleEl.textContent = event.currentTarget.value.trim();
+    if (event.currentTarget.value.trim() === "") {
+          return  titleEl.textContent =  "Anonymous";
+        }
+        
     }
-    getValue() {
-      return this.#value;
-    }
-    padEnd(str) {
-      this.#value += str ;
-    }
-    padStart(str) {
-      this.#value = str + this.#value;
-    }
-    padBoth(str){
-      this.#value = str + this.#value + str;
-    }
-  }
-  const builder = new StringBuilder(".");
-  console.log(builder.getValue()); // "."
-  builder.padStart("^");
-  console.log(builder.getValue()); // "^."
-  builder.padEnd("^");
-  console.log(builder.getValue()); // "^.^"
-  builder.padBoth("=");
-  console.log(builder.getValue()); // "=^.^="
+

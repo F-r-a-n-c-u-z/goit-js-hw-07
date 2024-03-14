@@ -1,0 +1,14 @@
+.boxes-cube{
+    width: 30px;
+    height: 30px;
+    /* color: teal; */
+
+    margin-top: 15px;
+    margin-left: 15px;
+   
+}
+
+#boxes{
+    display: flex;
+    flex-wrap: wrap
+}
