@@ -7,6 +7,5 @@ function hadleInput(event) {
     if (event.currentTarget.value.trim() === "") {
           return  titleEl.textContent =  "Anonymous";
         }
-        
     }
 

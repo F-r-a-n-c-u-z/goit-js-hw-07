@@ -11,6 +11,6 @@ function hundleSubmit(event) {
     return alert('All form fields must be filled in');
   }
 
-  console.log({ Email: email.trim(), Password: password.trim()});
+  console.log({ Email: email.trim(), Password: password.trim() });
   event.target.reset();
 }

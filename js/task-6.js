@@ -4,51 +4,46 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-// const divControls = document.querySelector("#controls");
-// console.log(divControls); - общий div
+// input
+const inputElem = document.querySelector('input');
+inputElem.addEventListener('input', inputClick);
 
-
-const inputElem = document.querySelector("input  ")
-console.log(inputElem);
-
-const buttonCreate = document.querySelector("button[data-create]")
-console.log(buttonCreate);
-
-// buttonCreate.addEventListener('click', hundleClick);
-// function hundleClick() {
-//   const divElem = document.createElement ("div")
-//   divElem.widgth = 30;
-//   divBoxes.style.backgroundColor = getRandomHexColor();
- 
-// }
-
-const buttonDestroy = document.querySelector("button[data-Destroy]")
-console.log(buttonDestroy);
-
-buttonDestroy.addEventListener("click", destroyClick)
-function destroyClick(even) {
-  inputElem.innerHTML = "12";
+let inputValue;
+function inputClick(event) {
+  inputValue = event.currentTarget.value;
 }
 
-const divBoxes = document.querySelector("#boxes");
-console.log(divBoxes);
+//Create
+const buttonCreate = document.querySelector('button[data-create]');
+buttonCreate.addEventListener('click', createClick);
 
+let widthAndHeight = 30;
 
+function createClick() {
+  for (let i = 0; i < inputValue; i++) {
+    if (inputValue >= 1 && inputValue <= 100) {
+      const divElem = document.createElement('div');
+      divElem.classList.add('boxes-cube');
+      widthAndHeight += 10;
 
+      divElem.style.width = `${widthAndHeight}px`;
+      divElem.style.height = `${widthAndHeight}px`;
+      divElem.style.backgroundColor = getRandomHexColor();
 
-
-
-// const step = 30;
-// step += 10;
-
-buttonCreate.addEventListener('click', hundleClick);
-function hundleClick() {
-  const divElem = document.createElement ("div")
-  divElem.classList.add("boxes-cube")
-  divElem.style.backgroundColor = getRandomHexColor();
-
-  divBoxes.append(divElem)
- 
+      divBoxes.append(divElem);
+    }
+  }
+  inputValue = null;
+  inputElem.value = '';
 }
 
+//Destroy
+const buttonDestroy = document.querySelector('button[data-destroy]');
 
+buttonDestroy.addEventListener('click', destroyClick);
+function destroyClick() {
+  divBoxes.innerHTML = '';
+}
+
+//Boxes
+const divBoxes = document.querySelector('#boxes');
