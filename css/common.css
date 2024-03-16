@@ -11,6 +11,5 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
- 
 }
-@import url("./task-2.css");
+@import url('./task-2.css');
