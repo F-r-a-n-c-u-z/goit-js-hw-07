@@ -5,8 +5,8 @@ function getRandomHexColor() {
 }
 
 // input
-const inputElem = document.querySelector('input');
-inputElem.addEventListener('input', inputClick);
+const inputElement = document.querySelector('input');
+inputElement.addEventListener('input', inputClick);
 
 let inputValue;
 function inputClick(event) {
@@ -20,8 +20,8 @@ buttonCreate.addEventListener('click', createClick);
 let widthAndHeight = 30;
 
 function createClick() {
-  for (let i = 0; i < inputValue; i++) {
-    if (inputValue >= 1 && inputValue <= 100) {
+  if (inputValue >= 1 && inputValue <= 100) {
+    for (let i = 0; i < inputValue; i++) {
       const divElem = document.createElement('div');
       divElem.classList.add('boxes-cube');
       widthAndHeight += 10;
@@ -34,7 +34,8 @@ function createClick() {
     }
   }
   inputValue = null;
-  inputElem.value = '';
+  inputElement.value = '';
+  widthAndHeight = 30;
 }
 
 //Destroy

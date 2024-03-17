@@ -27,17 +27,19 @@ const images = [
 
 const img = document.querySelector('.gallery');
 
-const markup = images.map(iteam => {
+  images.forEach(item => {
   const liElem = document.createElement('li');
-  liElem.classList.add('gallery-iteam');
+  liElem.classList.add('gallery-item');
 
   const imgElem = document.createElement('img');
-  imgElem.classList.add('gallery-iteam-img');
-  imgElem.src = iteam.url;
+  imgElem.classList.add('gallery-item-img');
+  imgElem.src = item.url;
   imgElem.width = 360;
-  imgElem.alt = iteam.alt;
+  imgElem.alt = item.alt;
 
   liElem.append(imgElem);
 
   img.append(liElem);
 });
+
+  
