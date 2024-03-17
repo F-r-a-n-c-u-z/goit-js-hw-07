@@ -27,19 +27,16 @@ const images = [
 
 const img = document.querySelector('.gallery');
 
-  images.forEach(item => {
-  const liElem = document.createElement('li');
-  liElem.classList.add('gallery-item');
-
-  const imgElem = document.createElement('img');
-  imgElem.classList.add('gallery-item-img');
-  imgElem.src = item.url;
-  imgElem.width = 360;
-  imgElem.alt = item.alt;
-
-  liElem.append(imgElem);
-
-  img.append(liElem);
-});
-
-  
+function createGallery(arr) {
+  return arr.map(item => {
+    const liElement = document.createElement('li');
+    const imgElement = document.createElement('img');
+    imgElement.src = item.url;
+    imgElement.alt = item.alt;
+    imgElement.width = 360;
+    liElement.append(imgElement);
+    return liElement;
+  });
+}
+const addingGalleries = createGallery(images);
+img.append(...addingGalleries);
